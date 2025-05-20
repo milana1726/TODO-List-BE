@@ -1,12 +1,12 @@
-import { Inject, Injectable, NotFoundException } from '@nestjs/common';
-import { Todo } from './interfaces/todo.interface';
-import { Model } from 'mongoose';
-import { CreateTodoDto } from './dto/create-todo.dto';
-import { UpdateTodoDto } from './dto/update-todo.dto';
+import { Inject, Injectable, NotFoundException } from "@nestjs/common";
+import { Todo } from "./interfaces/todo.interface";
+import { Model } from "mongoose";
+import { CreateTodoDto } from "./dto/create-todo.dto";
+import { UpdateTodoDto } from "./dto/update-todo.dto";
 
 @Injectable()
 export class TodosService {
-  constructor(@Inject('TODO_MODEL') private todoModel: Model<Todo>) {}
+  constructor(@Inject("TODO_MODEL") private todoModel: Model<Todo>) {}
 
   async create(createTodoDto: CreateTodoDto): Promise<Todo> {
     const createTodo = new this.todoModel(createTodoDto);
